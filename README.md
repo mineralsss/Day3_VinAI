@@ -5,7 +5,7 @@ Welcome to Phase 3 of the Agentic AI course! This lab focuses on moving from a s
 ## 🚀 Getting Started
 
 ### 1. Setup Environment
-Copy the `.env.example` to `.env` and fill in your API keys:
+Copy the `env_example.txt` to `.env` and fill in your API keys:
 ```bash
 cp .env.example .env
 ```
@@ -15,42 +15,29 @@ cp .env.example .env
 pip install -r requirements.txt
 ```
 
-### 3. Directory Structure
-- `src/tools/`: Extension point for your custom tools.
-
 ## 🏠 Running with Local Models (CPU)
 
 If you don't want to use OpenAI or Gemini, you can run open-source models (like Phi-3) directly on your CPU using `llama-cpp-python`.
 
 ### 1. Download the Model
-Download the **Phi-3-mini-4k-instruct-q4.gguf** (approx 2.2GB) from Hugging Face:
-- [Phi-3-mini-4k-instruct-GGUF](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf)
-- Direct Download: [phi-3-mini-4k-instruct-q4.gguf](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-q4.gguf)
+Download the **gemma-4-E4B-it-GGUF** (approx 5.07GB) from Hugging Face:
+- [unsloth/gemma-4-E4B-it-GGUF](https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/blob/main/gemma-4-E4B-it-Q4_1.gguf)
 
 ### 2. Place Model in Project
 Create a `models/` folder in the root and move the downloaded `.gguf` file there.
+
+
+### 3. Get your Serpapi key
+Go to [Link](https://serpapi.com) and get your own api key in order for some tools to work
+then place api key in `.env` 
 
 ### 3. Update `.env`
 Change your `DEFAULT_PROVIDER` and set the path:
 ```env
 DEFAULT_PROVIDER=local
-LOCAL_MODEL_PATH=./models/Phi-3-mini-4k-instruct-q4.gguf
+LOCAL_MODEL_PATH=./models/gemma-4-E4B-it-Q4_1.gguf
 ```
 
-## 🎯 Lab Objectives
 
-1.  **Baseline Chatbot**: Observe the limitations of a standard LLM when faced with multi-step reasoning.
-2.  **ReAct Loop**: Implement the `Thought-Action-Observation` cycle in `src/agent/agent.py`.
-3.  **Provider Switching**: Swap between OpenAI and Gemini seamlessly using the `LLMProvider` interface.
-4.  **Failure Analysis**: Use the structured logs in `logs/` to identify why the agent fails (hallucinations, parsing errors).
-5.  **Grading & Bonus**: Follow the [SCORING.md](file:///Users/tindt/personal/ai-thuc-chien/day03-lab-agent/SCORING.md) to maximize your points and explore bonus metrics.
-
-## 🛠️ How to Use This Baseline
-The code is designed as a **Production Prototype**. It includes:
-- **Telemetry**: Every action is logged in JSON format for later analysis.
-- **Robust Provider Pattern**: Easily extendable to any LLM API.
-- **Clean Skeletons**: Focus on the logic that matters—the agent's reasoning process.
-
----
 
 *Happy Coding! Let's build agents that actually work.*
