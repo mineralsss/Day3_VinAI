@@ -37,7 +37,7 @@ Change your `DEFAULT_PROVIDER` and set the path:
 DEFAULT_PROVIDER=local
 LOCAL_MODEL_PATH=./models/gemma-4-E4B-it-Q4_1.gguf
 ```
-
+Go to [Quick Start](./QUICKSTART.md) for more information
 
 
 *Happy Coding! Let's build agents that actually work.*
